@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./gautam.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+ <div class="main">
+    <div>
+    <div class="hey"><img src="https://cdn.statusqueen.com/dpimages/thumbnail/Attitude_boy_dp_-3106.jpg" class="avatar"><div class="hey2"><h4>Hi Mike,</h4><div><h6>Welcome back</h6></div></div></div>
+      </br>
+    <div><h4>Today</h4></div> 
+      </br>  
+    <div><h3>$19,892</h3><div>Account balance</div></div>
+        </br> 
+    <div><h4>$4,000</h4>Year-to-Date Contributions</div> 
+        </br>
+    <div><h4>$1,893</h4>Total Interest</div> 
+        </br>
+    <div><button class="btn">I want to </button></div>  
+        </br>
+        </br>
+    <div><h4>Recent Transactions</h4></div>
+          </br>
+    <div><h6>2020-08-07</h6><h5>Withdrawal Transfer to Bank-XXX11</h5></div>
+           </br>
+    <div><h6>2020-07-21</h6><h5>Withdrawal Transfer to Bank-XXX11</h5></div>
+           </br>
+    <div><h6>2020-07-16</h6><h5>Withdrawal Transfer to Bank-XXX11</h5></div>
+    </div>
+  </br>
+  </br>
+  </br>
+    <div class="woo">
+        <div><h5>Retirement Income</h5><h3>Starting Year 2056</h3></div>
+        </br>
+        <div class="woo2">
+            <div><h3>$300,000</h3><h6>My Goal</h6><hr width="110px" color="blue" ></div>
+            
+            <div class="woo3">
+                <div><h3>59%</h3><h6>Goal Achieved</h6><hr width="110px" color="blue"></div>
+                <div><h3>$300</h3><h6>Est. Monthly Income</h6><hr width="110px" color="blue"></div>
+            </div>
+        </div>
+        </br>
+        </br>
+        <div><h3>Contributions Overtime</h3></div>
+        <div>
+            <canvas id="stackedBarChart"></canvas>
+  <script>
+    // Data for the chart
+    const xValues = Array.from({ length: 7 }, (_, index) => 20 + index * 5); // X-axis values from 20 to 50 with a difference of 5
+    const yValues = Array.from({ length: 7 }, (_, index) => (index + 1) * 50); // Y-axis values from 50 to 350 with an increment of 50
+
+    // Create the chart
+    const ctx = document.getElementById("stackedBarChart").getContext("2d");
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: xValues,
+        datasets: [
+          {
+            label: "Employer K 73,500",
+            data: yValues.map((value) => value / 3),
+            backgroundColor: "darkblue",
+          },
+          {
+            label: "Employee K 52,500",
+            data: yValues.map((value) => value / 3),
+            backgroundColor: "blue",
+          },
+          {
+            label: "Total Interest K 244,313",
+            data: yValues.map((value) => value / 3),
+            backgroundColor: "lightblue",
+          },
+        ],
+      },
+      options: {
+        scales: {
+          x: {
+            stacked: true,
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            max: 300,
+            ticks: {
+              callback: function (value, index, values) {
+                return value + "$";
+              },
+            },
+          },
+        },
+      },
+    });
+  </script>
+        </div>
+        <div></div>
+        <div></div>
+    </div>
+     </br>
+     </br>
+    </br>
+
+    <div>
+        <div><h3>Retirement Strategy</h3></div>
+        </br>
+        </br>
+        <div><h5>Employee Contribution</h5></div>
+        </br>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="12" class="slider" id="myRange">
+            <h5>12%</h5>
+          </div>
+           </br>
+        <div><h5>Retirement Age</h5></div>
+          </br>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="65" class="slider" id="myRange">
+            <h5>65</h5>  
+        </div>
+         </br>
+        </br>
+        <div><h5>Employer Contribution    8.4%</h5></div>
+         </br>
+        <div><h5>Interest Rate     5%</h5></div>
+        </br>
+        <button type="button" class="btn btn-primary">Update</button>
+    </div>
+ </div>
+
+    
+</body>
+</html>
